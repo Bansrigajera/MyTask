@@ -14,7 +14,8 @@ class Student:
 
     def display_info(self):
         """Display student's inforation."""
-        print(f"Name: {self.name}, Roll No: {self.roll_no}, Marks: {self.marks}")
+        print(f"Name"
+              f": {self.name}, Roll No: {self.roll_no}, Marks: {self.marks}")
 
 
 class StudentManager:
