@@ -13,8 +13,8 @@ class Student:
         self.marks = marks
 
     def display_info(self):
-        """Display student's information."""
-        print(f"marks: {self.name}, Roll No: {self.roll_no}, Marks: {self.marks}")
+        """Display student's inforation."""
+        print(f"Name: {self.name}, Roll No: {self.roll_no}, Marks: {self.marks}")
 
 
 class StudentManager:
@@ -22,8 +22,8 @@ class StudentManager:
 
     def add_student(self):
         """Add a new student to the list."""
-        name = input("Enter student's name: ")
         roll_no = input("Enter roll number: ")
+        name = input("Enter student's name: ")
         marks = float(input("Enter marks: "))
         new_student = Student(name, roll_no, marks)
         self.students.append(new_student)
@@ -33,6 +33,7 @@ class StudentManager:
         self.students = []
 
     def display_students(self):
+
         """Display all students."""
         if not self.students:
             print("No student records available.\n")
@@ -55,6 +56,11 @@ class StudentManager:
             json.dump(data, file)
         print(f"Data saved successfully to '{filename}'!\n")
 
+    def count_students(self):
+        """Count and display total number of students."""
+        total = len(self.students)
+        print(f"\nTotal number of students: {total}\n")
+
     def load_from_file(self, filename):
         """Load student data from a JSON file."""
         try:
@@ -76,8 +82,8 @@ def show_menu():
     print("2. Display Students")
     print("3. Save to File")
     print("4. Load from File")
-    print("5. Exit")
-
+    print("5. Count Students")
+    print("6. Exit")
 
 def main():
     """Main function to run the program."""
@@ -98,6 +104,8 @@ def main():
         elif choice == '4':
             manager.load_from_file(filename)
         elif choice == '5':
+            manager.count_students()
+        elif choice == '6':
             print("Exiting program... Goodbye!")
             break
         else:
