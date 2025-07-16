@@ -16,6 +16,13 @@ def create_user():
     data = request.get_json()
     users.append(data)
     return jsonify({"message": "User added!", "user": data}), 201
+#
+# {
+#   "name": "Bansri",
+#   "email": "bansri@example.com"
+# }
+
+
 
 # PUT: Update an existing user by name
 @app.route('/users/<string:name>', methods=['PUT'])
@@ -26,6 +33,10 @@ def update_user(name):
             user.update(data)
             return jsonify({"message": "User updated!", "user": user})
     return jsonify({"error": "User not found"}), 404
+
+# {
+#   "email": "newemail@example.com"
+# }
 
 # DELETE: Remove user by name
 @app.route('/users/<string:name>', methods=['DELETE'])
