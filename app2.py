@@ -16,7 +16,7 @@ def create_user():
     data = request.get_json()
     users.append(data)
     return jsonify({"message": "User added!", "user": data}), 201
-#
+
 # {
 #   "name": "Bansri",
 #   "email": "bansri@example.com"
